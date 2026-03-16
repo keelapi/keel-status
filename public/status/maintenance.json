@@ -1,0 +1,21 @@
+[
+  {
+    "id": "maint_2026_03_22_db_patch",
+    "name": "Primary database patch window",
+    "status": "Scheduled",
+    "impact": "Brief degradation possible",
+    "summary": "We will apply infrastructure patches to the primary database layer. Short periods of elevated latency may occur while connections are rotated.",
+    "startsAt": "2026-03-22T07:00:00Z",
+    "endsAt": "2026-03-22T08:00:00Z",
+    "createdAt": "2026-03-14T18:00:00Z",
+    "components": ["API", "Execution Pipeline", "Usage Ledger"],
+    "updates": [
+      {
+        "id": "maint_2026_03_22_1",
+        "status": "Scheduled",
+        "timestamp": "2026-03-14T18:00:00Z",
+        "message": "Maintenance was scheduled with brief degradation possible during connection rotation."
+      }
+    ]
+  }
+]

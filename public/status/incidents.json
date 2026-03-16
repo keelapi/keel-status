@@ -1,0 +1,74 @@
+[
+  {
+    "id": "inc_2026_02_18_provider_timeouts",
+    "name": "Elevated provider timeout rates",
+    "impact": "Degraded Performance",
+    "currentStatus": "Resolved",
+    "summary": "A subset of upstream provider requests timed out for 23 minutes, increasing retry volume and end-to-end latency.",
+    "startedAt": "2026-02-18T14:07:00Z",
+    "resolvedAt": "2026-02-18T14:30:00Z",
+    "components": ["API", "Provider Connectivity", "Execution Pipeline"],
+    "updates": [
+      {
+        "id": "inc_2026_02_18_1",
+        "status": "Investigating",
+        "timestamp": "2026-02-18T14:10:00Z",
+        "message": "We are investigating elevated timeout rates affecting a subset of upstream requests."
+      },
+      {
+        "id": "inc_2026_02_18_2",
+        "status": "Identified",
+        "timestamp": "2026-02-18T14:18:00Z",
+        "message": "The issue was isolated to one provider path. Traffic is being shifted to a healthy route."
+      },
+      {
+        "id": "inc_2026_02_18_3",
+        "status": "Monitoring",
+        "timestamp": "2026-02-18T14:24:00Z",
+        "message": "Timeout rates have returned to baseline. We are monitoring recovery and backlog drain."
+      },
+      {
+        "id": "inc_2026_02_18_4",
+        "status": "Resolved",
+        "timestamp": "2026-02-18T14:30:00Z",
+        "message": "The affected provider route has been stabilized and the backlog has cleared."
+      }
+    ]
+  },
+  {
+    "id": "inc_2026_01_09_ledger_delay",
+    "name": "Delayed usage ledger writes",
+    "impact": "Partial Outage",
+    "currentStatus": "Resolved",
+    "summary": "Usage ledger events accumulated in queue and posted late for some accounts. Request serving was unaffected.",
+    "startedAt": "2026-01-09T05:42:00Z",
+    "resolvedAt": "2026-01-09T06:31:00Z",
+    "components": ["Usage Ledger"],
+    "updates": [
+      {
+        "id": "inc_2026_01_09_1",
+        "status": "Investigating",
+        "timestamp": "2026-01-09T05:48:00Z",
+        "message": "We are investigating delayed posting of usage ledger events."
+      },
+      {
+        "id": "inc_2026_01_09_2",
+        "status": "Identified",
+        "timestamp": "2026-01-09T05:57:00Z",
+        "message": "A database connection pool limit was reached on the accounting path."
+      },
+      {
+        "id": "inc_2026_01_09_3",
+        "status": "Monitoring",
+        "timestamp": "2026-01-09T06:14:00Z",
+        "message": "Queued ledger events are draining after pool capacity was restored."
+      },
+      {
+        "id": "inc_2026_01_09_4",
+        "status": "Resolved",
+        "timestamp": "2026-01-09T06:31:00Z",
+        "message": "All delayed ledger events have been processed."
+      }
+    ]
+  }
+]

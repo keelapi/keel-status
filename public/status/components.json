@@ -1,0 +1,46 @@
+[
+  {
+    "id": "api",
+    "name": "API",
+    "status": "Operational",
+    "description": "Public API request handling and authentication.",
+    "note": "P95 latency is within normal range.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  },
+  {
+    "id": "execution-pipeline",
+    "name": "Execution Pipeline",
+    "status": "Operational",
+    "description": "Background execution, workflow dispatch, and retries.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  },
+  {
+    "id": "permit-validation",
+    "name": "Permit Validation",
+    "status": "Operational",
+    "description": "Policy checks, permit verification, and decision responses.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  },
+  {
+    "id": "usage-ledger",
+    "name": "Usage Ledger",
+    "status": "Operational",
+    "description": "Metering, usage accounting, and downstream billing events.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  },
+  {
+    "id": "provider-connectivity",
+    "name": "Provider Connectivity",
+    "status": "Operational",
+    "description": "Connectivity to upstream providers and dependency surfaces.",
+    "note": "Regional failover checks passed in the last hour.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  },
+  {
+    "id": "docs-public-surfaces",
+    "name": "Docs / Public Surfaces",
+    "status": "Operational",
+    "description": "Documentation site, status site, and public artifacts.",
+    "updatedAt": "2026-03-16T21:30:00Z"
+  }
+]
