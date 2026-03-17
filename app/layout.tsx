@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
+import { StatusHeader } from "@/components/status-header";
 
 export const metadata: Metadata = {
   title: "Keel Status",
   description: "Current operational status for Keel."
 };
+
+const themeBootstrapScript = `
+  (() => {
+    try {
+      const stored = window.localStorage.getItem("keel-theme");
+      const isDark = stored ? stored === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", isDark);
+    } catch {}
+  })();
+`;
 
 export default function RootLayout({
   children
@@ -13,25 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <div className="shell">
-          <header className="site-header">
-            <div>
-              <Link className="brand" href="/">
-                Keel Status
-              </Link>
-              <p className="subtle">Operational visibility for status.keelapi.com</p>
-            </div>
-            <nav className="nav">
-              <Link href="/">Overview</Link>
-              <Link href="/incidents">Incidents</Link>
-              <Link href="/maintenance">Maintenance</Link>
-            </nav>
-          </header>
-          <main>{children}</main>
-          <footer className="site-footer">
-            <p>Plain operational reporting. No telemetry is collected on this site.</p>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+        <div className="site-frame">
+          <StatusHeader />
+          <main className="shell site-main">{children}</main>
+          <footer className="shell site-footer">
+            <p>Operational reporting only. No telemetry is collected on this site.</p>
           </footer>
         </div>
       </body>
