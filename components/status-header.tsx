@@ -16,15 +16,16 @@ export function StatusHeader() {
   return (
     <header className="site-header">
       <div className="shell site-header__inner">
-        <a className="keel-header-brand" href="https://keelapi.com">
-          <img className="keel-header-brand__icon" src="/keel.svg" alt="" aria-hidden="true" />
-          <span className="keel-header-brand__copy">
+        <span className="keel-header-brand">
+          <a className="keel-header-brand__link" href="https://keelapi.com">
+            <img className="keel-header-brand__icon" src="/keel.svg" alt="" aria-hidden="true" />
             <span className="keel-header-brand__wordmark">Keel</span>
-            <span className="keel-header-brand__divider" aria-hidden="true"></span>
+          </a>
+          <span className="keel-header-brand__copy">
+            <span className="keel-header-brand__separator" aria-hidden="true">|</span>
             <span className="keel-header-brand__title">Status</span>
-            <span className="keel-header-brand__subtitle">Operational visibility</span>
           </span>
-        </a>
+        </span>
         <div className="site-header__actions">
           <nav className="nav" aria-label="Primary">
             {navigationItems.map((item) => {
