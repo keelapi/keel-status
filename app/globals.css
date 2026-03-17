@@ -62,7 +62,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
+    radial-gradient(circle at top, hsl(var(--primary) / 0.08), transparent 28%),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary) / 0.85) 100%);
   color: hsl(var(--foreground));
   font-family:
     ui-sans-serif,
@@ -163,13 +164,13 @@ ul {
   justify-content: space-between;
   gap: 20px;
   min-height: 64px;
-  padding: 0.75rem 0;
+  padding: 0;
 }
 
 .site-header__actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .site-main {
@@ -189,31 +190,38 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  border-radius: calc(var(--radius) - 0.25rem);
+  transition: color 0.18s ease;
+}
+
+.brand:hover .brand-badge {
+  color: hsl(var(--primary));
+}
+
+.brand:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.35);
+  outline-offset: 4px;
 }
 
 .brand-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 54px;
-  padding: 0.5rem 0.625rem;
-  border-radius: calc(var(--radius) - 0.125rem);
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  color: hsl(var(--foreground));
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .brand-copy {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .brand-title {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
@@ -258,20 +266,25 @@ ul {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid hsl(var(--input));
+  border: 0;
   border-radius: calc(var(--radius) - 0.25rem);
-  background: hsl(var(--background));
+  background: transparent;
   color: hsl(var(--muted-foreground));
   cursor: pointer;
   transition:
     background-color 0.18s ease,
     color 0.18s ease,
-    border-color 0.18s ease;
+    outline-color 0.18s ease;
 }
 
 .theme-toggle:hover {
   background: hsl(var(--secondary));
   color: hsl(var(--foreground));
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.35);
+  outline-offset: 2px;
 }
 
 .theme-toggle__icon {
@@ -283,6 +296,8 @@ ul {
 .timestamp,
 dt {
   color: hsl(var(--muted-foreground));
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .stack-lg,
@@ -309,9 +324,21 @@ dt {
 
 .hero h1,
 .page-intro h1 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: clamp(1.95rem, 3.8vw, 2.35rem);
   font-weight: 600;
   letter-spacing: -0.03em;
+}
+
+.section-head h2,
+.incident-card h2 {
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 600;
+}
+
+.component-row h3,
+.event-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .section-head h2,
@@ -334,6 +361,8 @@ dt {
   margin-top: 12px;
   max-width: 62ch;
   color: hsl(var(--muted-foreground));
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .summary-grid,

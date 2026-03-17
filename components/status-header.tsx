@@ -16,13 +16,13 @@ export function StatusHeader() {
   return (
     <header className="site-header">
       <div className="shell site-header__inner">
-        <Link className="brand" href="/">
+        <a className="brand" href="https://keelapi.com">
           <span className="brand-badge">Keel</span>
           <span className="brand-copy">
             <span className="brand-title">Status</span>
             <span className="brand-subtitle">Operational visibility</span>
           </span>
-        </Link>
+        </a>
         <div className="site-header__actions">
           <nav className="nav" aria-label="Primary">
             {navigationItems.map((item) => {
