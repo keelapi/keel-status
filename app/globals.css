@@ -186,48 +186,69 @@ ul {
   font-size: 0.95rem;
 }
 
-.brand {
+.keel-header-brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   border-radius: calc(var(--radius) - 0.25rem);
+  min-height: 40px;
   transition: color 0.18s ease;
 }
 
-.brand:hover .brand-badge {
+.keel-header-brand:hover .keel-header-brand__wordmark,
+.keel-header-brand:hover .keel-header-brand__title {
   color: hsl(var(--primary));
 }
 
-.brand:focus-visible {
+.keel-header-brand:focus-visible {
   outline: 2px solid hsl(var(--ring) / 0.35);
   outline-offset: 4px;
 }
 
-.brand-badge {
+.keel-header-brand__icon {
+  width: 18px;
+  height: 19px;
+  flex: 0 0 auto;
+}
+
+.keel-header-brand__copy {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  line-height: 1;
+}
+
+.keel-header-brand__wordmark {
   color: hsl(var(--foreground));
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
+.keel-header-brand__divider {
+  width: 1px;
+  height: 0.95rem;
+  background: hsl(var(--border-strong));
+  flex: 0 0 auto;
 }
 
-.brand-title {
+.keel-header-brand__title {
+  color: hsl(var(--foreground));
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
-.brand-subtitle {
+.keel-header-brand__subtitle {
   color: hsl(var(--muted-foreground));
   font-size: 0.82rem;
+}
+
+.keel-header-brand__wordmark,
+.keel-header-brand__title,
+.keel-header-brand__subtitle {
+  white-space: nowrap;
 }
 
 .nav {
@@ -522,6 +543,15 @@ dd {
 
   .theme-toggle {
     align-self: flex-start;
+  }
+
+  .keel-header-brand__copy {
+    gap: 8px;
+  }
+
+  .keel-header-brand__divider,
+  .keel-header-brand__subtitle {
+    display: none;
   }
 }
 
